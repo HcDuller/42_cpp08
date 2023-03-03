@@ -1,7 +1,7 @@
 NAME = main
-CC = c++
+CC = c++ -std=c++98
 
-CFLAGS = -Wall -Wextra -Werror -Wconversion -std=c++98 -g3
+CFLAGS = -Wall -Wextra -Werror -Wconversion -g3
 
 SRC = 	main.cpp
 
