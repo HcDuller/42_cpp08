@@ -3,7 +3,9 @@ CC = c++ -std=c++98
 
 CFLAGS = -Wall -Wextra -Werror -Wconversion -g3
 
-SRC = 	main.cpp
+SRC = 	main.cpp NotFoundException.cpp
+
+TPP = easyfind.tpp
 
 OBJ = $(SRC:.cpp=.o)
 
@@ -21,7 +23,7 @@ RESET = \033[0m
 
 all: $(NAME)
 
-$(NAME): $(OBJ)
+$(NAME): $(OBJ) $(TPP)
 	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
 
 $(OBJ): %.o: %.cpp

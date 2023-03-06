@@ -6,19 +6,19 @@
 /*   By: hde-camp <hde-camp@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 16:22:36 by hde-camp          #+#    #+#             */
-/*   Updated: 2023/03/03 19:47:20 by hde-camp         ###   ########.fr       */
+/*   Updated: 2023/03/06 16:02:31 by hde-camp         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 # include "easyfind.hpp"
+# include "NotFoundException.hpp"
 
 template<typename T>
-void easyfind(T container, int value){
+void easyfind(T container, int value) throw(NotFoundException){
 	if (has_iterator<T>::has)
 	{
 		typedef typename T::iterator ft_it;
-		std::cout << "Provided type has iterators." << std::endl;
 		for (ft_it it = container.begin(); it != container.end(); it++)
 		{
 			if (*it == value)
@@ -27,7 +27,7 @@ void easyfind(T container, int value){
 				return;
 			}
 		}
-		std::cout << "Couldn't find value [" << value << "]" << std::endl;
+		throw NotFoundException();
 	}
 	else
 	{
