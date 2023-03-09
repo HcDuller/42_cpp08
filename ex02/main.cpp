@@ -6,7 +6,7 @@
 /*   By: hde-camp <hde-camp@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 12:47:48 by hde-camp          #+#    #+#             */
-/*   Updated: 2023/03/09 15:36:25 by hde-camp         ###   ########.fr       */
+/*   Updated: 2023/03/09 15:41:45 by hde-camp         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,8 +99,46 @@ void subjectMainList(void){
 	std::cout << YELLOW << "################# LIST END #################" << RESET << std::endl;
 }
 
+void reverseIteratorTest(void){
+	std::cout << BLUE << "################# MUTANTSTACK(" << RED << "REVERSE" << BLUE <<") START #################" << RESET << std::endl;
+	MutantStack<int>
+	mstack;
+	std::cout << GREEN << "Push: 100" << std::endl;
+	mstack.push(100);
+	std::cout << GREEN << "Push: 50" << std::endl;
+	mstack.push(50);
+	std::cout << WHITE << "Top:  " << mstack.top() << std::endl;
+	std::cout << RED << "Pop() (50)" << std::endl;
+	mstack.pop();
+	std::cout << RESET << "Size: " << mstack.size() << std::endl;
+	std::cout << GREEN << "Push: 40" << std::endl;
+	mstack.push(40);
+	std::cout << GREEN << "Push: 30" << std::endl;
+	mstack.push(30);
+	std::cout << GREEN << "Push: 20" << std::endl;
+	mstack.push(20);
+	std::cout << GREEN << "Push: 0" << RESET << std::endl;
+	mstack.push(0);
+	MutantStack<int>::reverse_iterator it = mstack.rbegin();
+	MutantStack<int>::reverse_iterator ite = mstack.rend();
+	std::cout << "Content of reverse iterator (rbegin): " << GREEN << *it << RESET << std::endl;
+	std::cout << "Move iterator with ++." << std::endl;
+	++it;
+	std::cout << "Content of iterator : " << GREEN << *it << RESET << std::endl;
+	std::cout << "Move iterator with --." << std::endl;
+	--it;
+	std::cout << "Content of iterator : " << GREEN << *it << RESET << std::endl;
+	std::cout << RESET;
+	std::cout << "Top [0], Bottom [" << (ite- it) << "]" <<std::endl;
+	for (int index = 0; index < (ite - it); index++){
+		std::cout << "Pos [" << index << "] Value[" << GREEN << *(it + index) << RESET << "]" << std::endl;
+	}
+	std::stack<int> cpyMutant(mstack);
+	std::cout << BLUE << "################# MUTANTSTACK(" << RED << "REVERSE" << BLUE <<") END #################" << RESET << std::endl;
+}
 
 int main(void){
+	reverseIteratorTest();
 	subjectMainStack();
 	subjectMainList();
 	return (0);
