@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   NotFoundException.hpp                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hde-camp <hde-camp@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 15:09:44 by hde-camp          #+#    #+#             */
-/*   Updated: 2023/03/10 14:49:07 by hde-camp         ###   ########.fr       */
+/*   Updated: 2023/03/10 20:10:32 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,5 +15,9 @@
 
 class NotFoundException : public std::exception{
 	public:
+		NotFoundException();
+		NotFoundException(const NotFoundException& origin);
+		NotFoundException& operator=(const NotFoundException& origin);
+		~NotFoundException() throw();
 		virtual const char* what() const throw();
 };
