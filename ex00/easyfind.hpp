@@ -6,13 +6,18 @@
 /*   By: hde-camp <hde-camp@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 15:32:13 by hde-camp          #+#    #+#             */
-/*   Updated: 2023/03/06 15:10:15 by hde-camp         ###   ########.fr       */
+/*   Updated: 2023/03/10 14:48:53 by hde-camp         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 #include <iostream>
 #include "NotFoundException.hpp"
+
+# define GREEN "\033[32;1m"
+# define RESET "\033[0m"
+# define BLUE "\033[33;1m"
+# define RED "\033[31;1m"
 
 template<typename T>
 struct has_iterator{
