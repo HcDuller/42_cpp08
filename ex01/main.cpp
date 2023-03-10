@@ -6,7 +6,7 @@
 /*   By: hde-camp <hde-camp@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 02:10:45 by hde-camp          #+#    #+#             */
-/*   Updated: 2023/03/08 17:25:23 by hde-camp         ###   ########.fr       */
+/*   Updated: 2023/03/10 18:06:16 by hde-camp         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,11 @@ int main(void){
 		Span mySpan(10);
 		std::cout << WHITE << "Adding number: ";
 		for (unsigned int i = 0; i < mySpan.getCapacity() - 1; i++){
-			std::cout << i << "...";
-			mySpan.addNumber(i);
+			std::cout << i*100 << "...";
+			mySpan.addNumber(static_cast<int>(i*100));
 		}
-		std::cout << 0;
-		mySpan.addNumber(0);
+		std::cout << 15;
+		mySpan.addNumber(15);
 		std::cout << RESET << std::endl;
 		//mySpan.printContent(10); //uncomment this to print contents of mySpan
 		std::cout << "Shortest span: " << mySpan.shortestSpan() << std::endl;
